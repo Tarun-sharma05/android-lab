@@ -68,7 +68,7 @@ You learned Kotlin *through* Android, so the bare language has gaps. Do these in
 - [ ] Branching: `checkout -b`, `merge`; understand `rebase` conceptually
 - [ ] Resolve a merge conflict by hand (create one deliberately and fix it)
 - [ ] PR workflow: branch → push → open PR → review → merge
-- [ ] Conven✓tional commits: `feat:`, `fix:`, `chore:`, `docs:` — use these in android-lab
+- [ ] Conventional commits: `feat:`, `fix:`, `chore:`, `docs:` — use these in android-lab
 
 ### Debugging Android (1 day)
 - [ ] Logcat: filter by tag (`Log.d("TAG", "message")`), read a stack trace, find the crash line
