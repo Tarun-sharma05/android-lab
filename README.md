@@ -13,7 +13,7 @@ Built to sharpen implementation fluency and interview readiness.
 Every folder under `app/.../demos/` maps to a roadmap tier.
 Each file = one concept, written from blank with a short `// WHAT / WHY` comment and a runnable `@Preview`.
 
-`dsa/` = plain Kotlin problems (run in Kotlin Playground or CLI — no Android project needed).
+`dsa/` = plain Java problems (run via `javac` / online compiler — no Android project needed). Java for DSA, Kotlin for Android.
 
 **The rule:** tick a box only when you can reproduce it from a blank file in ~15 min, AI off.
 

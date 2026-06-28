@@ -43,21 +43,22 @@ You learned Kotlin *through* Android, so the bare language has gaps. Do these in
 
 ---
 
-## TIER 0-B — DSA in Kotlin *(was missing — this is why you fail coding rounds)*
-> Do in Kotlin Playground (play.kotlinlang.org) or plain `.kt` files. No Android Studio.
-> Platform: LeetCode Easy filtered by Kotlin + HackerRank 30 Days of Code. 1–2 problems/day.
+## TIER 0-B — DSA in Java *(was missing — this is why you fail coding rounds)*
+> Do in a plain `.java` file — run via `javac` / `java` on command line, or use an online compiler (onlinegdb.com, replit.com). No Android Studio needed.
+> Platform: LeetCode Easy (language = Java) + HackerRank 30 Days of Code (Java). 1–2 problems/day.
+> Files live in `dsa/` at repo root — create `.java` files, not `.kt`.
 
 - [ ] **Patterns**: right triangle, inverted, pyramid, diamond, number triangle — write output using nested loops
 - [ ] **Arrays**: reverse without built-ins, find second largest, two-sum with HashMap, move zeros to end, find duplicates
 - [ ] **Strings**: palindrome check, anagram check, reverse each word, character frequency map, first non-repeating char
-- [ ] **LinkedList from scratch**: `data class Node(val value: Int, var next: Node? = null)` + `LinkedList` class — insert, delete, reverse, print, detect cycle (Floyd's)
-- [ ] **Stack**: implement with `MutableList` — push, pop, peek, isEmpty; solve: balanced parentheses check
-- [ ] **Queue**: implement with `ArrayDeque` — enqueue, dequeue, peek
-- [ ] **HashMap problems**: group anagrams, frequency count, two-sum index version
-- [ ] **Sorting**: write bubble sort + selection sort by hand; know: bubble O(n²), merge O(n log n), quick O(n log n) avg, insertion O(n²)
-- [ ] **Binary search**: on sorted array, return index of target
-- [ ] **Recursion basics**: factorial, fibonacci, sum of digits
-- [ ] **Trees**: BFS node class, inorder/preorder/postorder (recursive), level-order BFS with Queue, find height
+- [ ] **LinkedList from scratch**: `class Node { int val; Node next; }` + `class LinkedList` — insert, delete, reverse, print, detect cycle (Floyd's)
+- [ ] **Stack**: implement using `int[] / ArrayList<Integer>` — push, pop, peek, isEmpty; solve: balanced parentheses check
+- [ ] **Queue**: implement using `int[]` with front/rear OR `LinkedList` — enqueue, dequeue, peek
+- [ ] **HashMap problems**: `HashMap<String, Integer>` — group anagrams, frequency count, two-sum index version
+- [ ] **Sorting**: write bubble sort + selection sort by hand in Java; know: bubble O(n²), merge O(n log n), quick O(n log n) avg, insertion O(n²)
+- [ ] **Binary search**: on sorted array, return index of target — iterative version
+- [ ] **Recursion basics**: factorial, fibonacci, sum of digits — write each with and without recursion
+- [ ] **Trees**: `class TreeNode { int val; TreeNode left, right; }` — inorder/preorder/postorder (recursive), level-order BFS with Queue, find height
 
 ---
 
@@ -253,8 +254,8 @@ Each isolates a cluster so you can rebuild it fast and repeatedly.
 
 **Week 1 (start today):**
 - Tier 0-C: Git (1 day) → SQL (1 day) → HTTP fundamentals (verbal, 1 day)
-- Tier 0-B: Patterns + Arrays/Strings (DSA daily, runs for all of weeks 1–4)
-- Tier 0: Kotlin Koans — Introduction + Collections sections
+- Tier 0-B: Patterns + Arrays/Strings in **Java** (DSA daily, runs for all of weeks 1–4)
+- Tier 0: Kotlin Koans — Introduction + Collections sections (Kotlin only for Android work)
 
 **Weeks 2–4:** Tier 0 Kotlin language (complete) + Tier 1 & 2 from blank.
 Lock: LazyVerticalGrid, Navigation args, ViewModel+StateFlow, sealed UiState, Koin module. These are 80% of interview implementation questions.

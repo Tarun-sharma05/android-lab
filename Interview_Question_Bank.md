@@ -214,7 +214,7 @@
 
 ---
 
-## SECTION 9 — DSA Implementation Prompts (Kotlin, blank file)
+## SECTION 9 — DSA Implementation Prompts (Java, blank file)
 
 ### Patterns (write output on paper or in Kotlin Playground)
 - [ ] Right triangle star pattern (n rows)
@@ -238,28 +238,28 @@
 - [ ] Count frequency of each character
 - [ ] Find the first non-repeating character
 
-### Linked List (implement from scratch)
-- [ ] `Node` data class + `LinkedList` class with head
-- [ ] `insert(value)` at end
-- [ ] `delete(value)`
-- [ ] `reverse()` the list
-- [ ] `print()` all values
-- [ ] Detect a cycle (Floyd's algorithm)
+### Linked List (implement from scratch in Java)
+- [ ] `class Node { int val; Node next; Node(int val) { this.val = val; } }`
+- [ ] `class LinkedList` with `Node head` — `insert(int val)` at end
+- [ ] `delete(int val)`
+- [ ] `reverse()` — iterative with 3 pointers (prev, curr, next)
+- [ ] `printAll()`
+- [ ] Detect a cycle (Floyd's — fast/slow pointer)
 
-### Stack & Queue
-- [ ] Stack using MutableList: push, pop, peek, isEmpty
-- [ ] Queue using ArrayDeque: enqueue, dequeue, peek, isEmpty
-- [ ] Valid parentheses check using a Stack
+### Stack & Queue (Java)
+- [ ] Stack using `ArrayList<Integer>`: push, pop, peek, isEmpty
+- [ ] Queue using `int[]` with front/rear indices: enqueue, dequeue, peek
+- [ ] Valid parentheses check using a Stack (`char` stack)
 
-### Sorting
-- [ ] Bubble sort — write from scratch, state time complexity
+### Sorting (Java — write logic, not Arrays.sort)
+- [ ] Bubble sort — write from scratch, state O(n²)
 - [ ] Selection sort — write from scratch
-- [ ] Know: merge sort O(n log n), quick sort O(n log n) avg — be able to explain the idea
+- [ ] Know the idea of merge sort O(n log n) and quick sort O(n log n) avg — explain verbally
 
-### HashMap
-- [ ] Group anagrams from a list of strings
-- [ ] Find the most frequent element in an array
-- [ ] Two Sum (index version)
+### HashMap (Java)
+- [ ] Group anagrams: `HashMap<String, List<String>>`
+- [ ] Find the most frequent element: `HashMap<Integer, Integer>` frequency count
+- [ ] Two Sum (index version): `HashMap<Integer, Integer>` — value → index
 
 ### Trees (verbal — know the concept, write traversals)
 - [ ] What is a binary tree? A binary search tree?
