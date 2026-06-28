@@ -17,11 +17,11 @@
 
 ## Daily routine (non-negotiable minimum)
 
-| Time | Activity |
-|---|---|
-| 30 min | DSA in Kotlin (Tier 0-B) — 1–2 problems on LeetCode Easy or Kotlin Playground |
-| 45 min | Android blank-file drill (current sprint tier) — AI off |
-| 5 min | Pick 3 questions from `Interview_Question_Bank.md`, say answers out loud |
+| Time | Activity                                                                    |
+|---|-----------------------------------------------------------------------------|
+| 30 min | DSA in Java (Tier 0-B) — 1–2 problems on LeetCode Easy or Kotlin Playground |
+| 45 min | Android blank-file drill (current sprint tier) — AI off                     |
+| 5 min | Pick 3 questions from `Interview_Question_Bank.md`, say answers out loud    |
 
 Saturday: rebuild everything from that week from memory, no notes open. That's what kills the interview freeze.
 
