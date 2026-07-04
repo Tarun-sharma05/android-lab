@@ -13,6 +13,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.tarun.androidlab.demos.fundamentals.lists.Fakedata
+import com.tarun.androidlab.demos.fundamentals.lists.LazyVerticalGridDemo
+import com.tarun.androidlab.demos.fundamentals.lists.sampleData
 import com.tarun.androidlab.ui.theme.AndroidLabTheme
 
 class MainActivity : ComponentActivity() {
@@ -26,7 +29,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     // Replace with CatalogScreen once you have 10+ demos
-                    PlaceholderScreen()
+                    LazyVerticalGridDemo(items = sampleData())
                 }
             }
         }
