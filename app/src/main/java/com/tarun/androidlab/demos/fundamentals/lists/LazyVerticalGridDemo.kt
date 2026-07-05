@@ -21,9 +21,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
+import com.tarun.androidlab.ui.theme.AndroidLabTheme
 
 @Composable
 fun LazyVerticalGridDemo(items: List<Fakedata>) {
@@ -151,8 +153,15 @@ fun sampleData(): List<Fakedata>{
 
 data class Fakedata(
     val id: Int,
-     val text: String,
+    val text: String,
     val image: String
-        )
+    )
 
 
+@Preview
+@Composable
+fun LazyVerticalGridDemoPreview(){
+    AndroidLabTheme() {
+LazyVerticalGridDemo(items = sampleData())
+    }
+}
