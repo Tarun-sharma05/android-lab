@@ -9,9 +9,7 @@ plugins {
 android {
     namespace = "com.tarun.androidlab"
     compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
+        version = release(37)
     }
 
     defaultConfig {
@@ -32,8 +30,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 //    kotlinOptions {
 //        jvmTarget = "11"
@@ -41,6 +39,7 @@ android {
     buildFeatures {
         compose = true
     }
+    buildToolsVersion = "36.0.0"
 }
 
 dependencies {
@@ -87,14 +86,14 @@ dependencies {
     implementation(libs.androidx.datastore.preferences)
 
     // Coroutines
-    implementation(libs.kotlinx.coroutines.android)
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.11.0")
 
     // Unit Testing
     testImplementation(libs.junit)
     testImplementation(libs.junit.jupiter)
     testImplementation(libs.mockk)
     testImplementation(libs.turbine)
-    testImplementation(libs.kotlinx.coroutines.test)
+//    testImplementation(libs.kotlinx.coroutines.test)
 
     // Android Testing
     androidTestImplementation(platform(libs.androidx.compose.bom))
