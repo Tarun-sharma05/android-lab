@@ -44,38 +44,6 @@ fun LazyVerticalGridDemo(items: List<Product>) {
 
               EachCard(item = item)
 
-//            Card(modifier = Modifier
-//                .padding(8.dp)
-//                .fillMaxWidth(),
-//                colors = CardDefaults.cardColors(Color.Black)
-//                ) {
-//                Column(modifier = Modifier.fillMaxSize(),
-//                    verticalArrangement = Arrangement.Center,
-//                    horizontalAlignment = Alignment.CenterHorizontally) {
-//                    Column(Modifier.background(color = Color.Blue),
-//                        verticalArrangement = Arrangement.Center,
-//                        horizontalAlignment = Alignment.CenterHorizontally) {
-//                        Text(text = item.text,
-//                             color = Color.White,
-//                            fontSize = 16.sp,
-//                            fontWeight = FontWeight.ExtraBold
-//                        )
-//                    }
-//                    Spacer(modifier = Modifier.height(8.dp))
-//
-//                    Column(modifier = Modifier.background(color = Color.Red),
-//                          verticalArrangement = Arrangement.Center,
-//                        horizontalAlignment = Alignment.CenterHorizontally) {
-//                    AsyncImage(
-//                        model = item.image,
-//                        contentDescription = null,
-//                        Modifier.size(200.dp)
-//                    )
-//                    }
-//
-//
-//                }
-//            }
         }
         }
     }
@@ -85,7 +53,7 @@ fun LazyVerticalGridDemo(items: List<Product>) {
 @Composable
 fun EachCard(item: Product, modifier: Modifier = Modifier) {
 
-    Card(modifier = Modifier
+    Card(modifier = modifier
         .padding(8.dp)
         .fillMaxWidth()
     ) {
