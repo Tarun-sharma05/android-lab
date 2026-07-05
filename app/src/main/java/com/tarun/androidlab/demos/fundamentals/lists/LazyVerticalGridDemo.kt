@@ -87,8 +87,7 @@ fun EachCard(item: Product, modifier: Modifier = Modifier) {
 
     Card(modifier = Modifier
         .padding(8.dp)
-        .fillMaxWidth(),
-        colors = CardDefaults.cardColors(Color.Black)
+        .fillMaxWidth()
     ) {
         Column(modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
