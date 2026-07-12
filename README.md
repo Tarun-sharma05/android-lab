@@ -21,7 +21,7 @@ Each file = one concept, written from blank with a short `// WHAT / WHY` comment
 
 ## Progress
 
-### DSA in Kotlin
+### DSA in Java
 - [ ] Patterns (star/number)
 - [ ] Arrays (reverse, two-sum, duplicates)
 - [ ] Strings (palindrome, anagram, frequency)
@@ -55,7 +55,7 @@ Each file = one concept, written from blank with a short `// WHAT / WHY` comment
 - [ ] State: mutableStateOf, remember, rememberSaveable, derivedStateOf
 - [ ] State hoisting (stateless composable + caller owns state)
 - [ ] Side effects: LaunchedEffect, DisposableEffect, SideEffect, produceState
-- [ ] Lists: LazyColumn, LazyRow, LazyVerticalGrid (2-column), key param
+- [x] Lists: LazyColumn, LazyRow, LazyVerticalGrid (2-column), key param
 - [ ] Layouts: Row, Column, Box, custom Layout
 - [ ] Modifier deep dive (order matters)
 - [ ] ViewModel + collectAsStateWithLifecycle
