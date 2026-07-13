@@ -1,6 +1,7 @@
 package com.tarun.androidlab
 
 import android.os.Bundle
+import android.telecom.Call
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -17,6 +18,10 @@ import com.tarun.androidlab.demos.fundamentals.lists.LazyVerticalGridDemo
 import com.tarun.androidlab.demos.fundamentals.lists.LazyVerticalStaggeredGridDemo
 import com.tarun.androidlab.demos.fundamentals.lists.sampleData
 import com.tarun.androidlab.demos.fundamentals.lists.sampleImages
+import com.tarun.androidlab.demos.fundamentals.navigation.DetailsScreenUI
+import com.tarun.androidlab.demos.fundamentals.navigation.HomeScreenUI
+import com.tarun.androidlab.demos.fundamentals.navigation.NavExample
+import com.tarun.androidlab.demos.fundamentals.navigation.Product
 import com.tarun.androidlab.ui.theme.AndroidLabTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,7 +35,9 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     // Replace with CatalogScreen once you have 10+ demos
-                    LazyVerticalStaggeredGridDemo(items = sampleImages())
+//                    LazyVerticalStaggeredGridDemo(items = sampleImages())
+//                    HomeScreenUI(onNavigatToDetails = {  })
+                    NavExample()
                 }
             }
         }

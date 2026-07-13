@@ -60,7 +60,7 @@ Each file = one concept, written from blank with a short `// WHAT / WHY` comment
 - [ ] Modifier deep dive (order matters)
 - [ ] ViewModel + collectAsStateWithLifecycle
 - [ ] Lifecycle: Activity lifecycle, Context types
-- [ ] Navigation: routes, args, nested graphs
+- [x] Navigation: routes, args, nested graphs
 
 ---
 
