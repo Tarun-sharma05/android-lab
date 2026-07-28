@@ -1,8 +1,11 @@
 package com.tarun.androidlab.demos.networking.retrofit.MarsPhotosApp
 
+import com.tarun.androidlab.demos.networking.retrofit.MarsPhotosApp.model.MarsDTO
+import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaType
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import retrofit2.http.GET
@@ -10,18 +13,18 @@ import retrofit2.http.GET
 private const val BASE_URL = "https://android-kotlin-fun-mars-server.appspot.com/"
 
 
-private val retrofit = Retrofit.Builder().baseUrl(BASE_URL)
-        .addConverterFactory(Json.asConverterFactory("Application/Json".toMediaType()))
+object apiProvider{
+    private val json = Json{ignoreUnknownKeys = true}
+    fun providerApi() = Retrofit.Builder().baseUrl(BASE_URL)
+        .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
         .build()
+        .create(ApiService::class.java)
+
+}
 
 
 interface ApiService {
     @GET("photos")
-    fun getPhotos(): String
+   suspend fun getPhotos(): Response<MarsDTO>
 }
 
-object MarsApi{
-    val retrofitService : ApiService by lazy {
-        retrofit.create(ApiService::class.java)
-    }
-}

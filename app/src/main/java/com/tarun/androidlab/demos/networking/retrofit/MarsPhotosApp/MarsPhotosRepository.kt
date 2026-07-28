@@ -1,4 +1,21 @@
 package com.tarun.androidlab.demos.networking.retrofit.MarsPhotosApp
 
-class MarsPhotosRepository {
+import com.tarun.androidlab.demos.networking.retrofit.MarsPhotosApp.model.MarsDTO
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import retrofit2.Response
+
+class MarsPhotosRepository{
+    suspend fun getMarsPhotos(): Flow<State<Response<MarsDTO>>> = flow{
+         emit(State.Loading)
+
+          try {
+            val response = apiProvider.providerApi().getPhotos()
+              emit(State.Success(response))
+          }
+          catch (e: Exception){
+              emit(State.Error(e.message.toString()))
+          }
+    }
+
 }
