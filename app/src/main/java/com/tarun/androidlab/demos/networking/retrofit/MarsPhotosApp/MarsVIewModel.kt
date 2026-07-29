@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 sealed interface MarsUiState{
     data class Success(val photos: List<MarsDTOItem>): MarsUiState
 
-    object  Error : MarsUiState
+    data class  Error(val message: String) : MarsUiState
 
     object Loading: MarsUiState
 }
@@ -36,7 +36,7 @@ class MarsViewModel : ViewModel(){
                        val body = state.data.body() ?: emptyList()
                         MarsUiState.Success(body)
                     }
-                    is State.Error -> MarsUiState.Error
+                    is State.Error -> MarsUiState.Error(state.message)
                 }
             }
 
