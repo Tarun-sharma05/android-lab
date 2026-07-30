@@ -34,6 +34,7 @@ import androidx.compose.foundation.lazy.staggeredgrid.items
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -47,49 +48,62 @@ fun  MarsPhotosUI(modifier: Modifier, viewModel: MarsViewModel) {
 
      val getPhotosState = viewModel.marsUiState
 
-    Scaffold(
-           modifier = Modifier.fillMaxSize(),
-          topBar = {TopAppBar(title = {Text("Mars Photos", textAlign = TextAlign.Center)})}
-    ) { paddingValues ->
 
-        when(getPhotosState){
-            is MarsUiState.Loading -> {
-                Box(modifier = modifier.fillMaxSize().padding(8.dp), contentAlignment = Alignment.Center) {
-                    CircularProgressIndicator()
+        Scaffold(
+            modifier = Modifier.fillMaxSize(),
+            topBar = { TopAppBar(title = { Text("Mars Photos", textAlign = TextAlign.Center) }) }
+        ) { paddingValues ->
+
+            PullToRefreshBox(
+                isRefreshing = viewModel.isRefreshing,
+                onRefresh = {viewModel.getMarsPhotos()},
+                modifier = Modifier.padding(paddingValues).fillMaxSize()
+            ) {
+            when (getPhotosState) {
+                is MarsUiState.Loading -> {
+                    Box(
+                        modifier = modifier.fillMaxSize().padding(8.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        CircularProgressIndicator()
+                    }
                 }
-            }
 
-            is MarsUiState.Error -> {
+                is MarsUiState.Error -> {
 //            Text(text = "Failed to load photos")
-                Box(modifier = modifier.fillMaxSize().padding(8.dp), contentAlignment = Alignment.Center) {
-                    Log.d("errors", "Error: ${getPhotosState.message}")
-                    Text(text = "Error: ${getPhotosState.message}")
+                    Box(
+                        modifier = modifier.fillMaxSize().padding(8.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Log.d("errors", "Error: ${getPhotosState.message}")
+                        Text(text = "Error: ${getPhotosState.message}")
+                    }
                 }
-            }
 
 
-            is MarsUiState.Success -> {
+                is MarsUiState.Success -> {
 //            Log.d("Products", "$")
 //            LazyColumn(modifier = modifier) {
 
-                LazyVerticalStaggeredGrid(
-                    modifier = Modifier.padding(paddingValues).fillMaxSize(),
-                    columns = StaggeredGridCells.Fixed(2),
-                    verticalItemSpacing = 4.dp,
-                    horizontalArrangement = Arrangement.spacedBy(4.dp),
-                ) {
-                    items(getPhotosState.photos) { photo ->
-                        Log.d("Products", "$photo")
+                    LazyVerticalStaggeredGrid(
+                        modifier = Modifier.padding().fillMaxSize(),
+                        columns = StaggeredGridCells.Fixed(2),
+                        verticalItemSpacing = 4.dp,
+                        horizontalArrangement = Arrangement.spacedBy(4.dp),
+                    ) {
+                        items(getPhotosState.photos) { photo ->
+                            Log.d("Products", "$photo")
 
-                        EachCard(photo = photo)
+                            EachCard(photo = photo)
 
 
+                        }
                     }
                 }
             }
+
+
         }
-
-
     }
 
     }
