@@ -31,6 +31,8 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
 import androidx.compose.foundation.lazy.staggeredgrid.items
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.TopAppBar
@@ -62,7 +64,8 @@ fun  MarsPhotosUI(modifier: Modifier, viewModel: MarsViewModel) {
             when (getPhotosState) {
                 is MarsUiState.Loading -> {
                     Box(
-                        modifier = modifier.fillMaxSize().padding(8.dp),
+                        modifier = modifier.fillMaxSize().padding(8.dp)
+                            .verticalScroll(rememberScrollState()),
                         contentAlignment = Alignment.Center
                     ) {
                         CircularProgressIndicator()
@@ -72,7 +75,8 @@ fun  MarsPhotosUI(modifier: Modifier, viewModel: MarsViewModel) {
                 is MarsUiState.Error -> {
 //            Text(text = "Failed to load photos")
                     Box(
-                        modifier = modifier.fillMaxSize().padding(8.dp),
+                        modifier = modifier.fillMaxSize().padding(8.dp)
+                            .verticalScroll(rememberScrollState()),
                         contentAlignment = Alignment.Center
                     ) {
                         Log.d("errors", "Error: ${getPhotosState.message}")
