@@ -19,6 +19,8 @@ sealed interface MarsUiState{
 class MarsViewModel : ViewModel(){
 
     var marsUiState : MarsUiState by mutableStateOf(MarsUiState.Loading)
+        private set
+    var isRefreshing by mutableStateOf(false)
 
       private set
 
@@ -27,11 +29,19 @@ class MarsViewModel : ViewModel(){
     }
 
     fun getMarsPhotos(){
-        viewModelScope.launch {
 
+
+        viewModelScope.launch {
+            isRefreshing = true
             MarsPhotosRepository().getMarsPhotos().collect { state ->
+
                 marsUiState = when(state){
-                    is State.Loading -> MarsUiState.Loading
+                    is State.Loading -> {
+                        if (marsUiState is MarsUiState.Success) {
+                            marsUiState
+                        }
+                        else MarsUiState.Loading
+                    }
                     is State.Success -> {
                        val body = state.data.body() ?: emptyList()
                         MarsUiState.Success(body)
@@ -39,6 +49,7 @@ class MarsViewModel : ViewModel(){
                     is State.Error -> MarsUiState.Error(state.message)
                 }
             }
+            isRefreshing = false
 
         }
     }
