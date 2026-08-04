@@ -11,7 +11,7 @@ class MarsPhotosRepository{
          emit(State.Loading)
 
           try {
-            val response = ApiProvider.retrofitService.getPhotos()
+              val response = ApiProvider.retrofitService.getPhotos()
               emit(State.Success(response))
           }
           catch (e: Exception){

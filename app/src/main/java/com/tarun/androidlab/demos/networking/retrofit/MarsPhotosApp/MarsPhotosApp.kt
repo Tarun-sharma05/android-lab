@@ -15,8 +15,8 @@ private const val BASE_URL = "https://android-kotlin-fun-mars-server.appspot.com
 
 
 object ApiProvider{
-    private val json = Json{ignoreUnknownKeys = true}
-    val retrofitService: ApiService by lazy {
+        private val json = Json{ignoreUnknownKeys = true}
+       val retrofitService: ApiService by lazy {
         Retrofit.Builder().baseUrl(BASE_URL)
             .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
             .build()

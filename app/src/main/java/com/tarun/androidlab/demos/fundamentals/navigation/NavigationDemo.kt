@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
-import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -21,14 +20,18 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.ui.NavDisplay
+import com.tarun.androidlab.demos.networking.retrofit.MarsPhotosApp.MarsPhotosUI
+import com.tarun.androidlab.demos.networking.retrofit.MarsPhotosApp.MarsViewModel
+import com.tarun.androidlab.demos.networking.retrofit.MarsPhotosApp.SingleMarsPhotoUI
 
 
 @Composable
 fun NavExample(modifier: Modifier = Modifier) {
 
-    val backStack = remember{ mutableStateListOf<Any>(Home) }
+    val backStack = remember{ mutableStateListOf<Any>(MarsPhotos) }
 
     NavDisplay(
         backStack = backStack,
@@ -46,6 +49,23 @@ fun NavExample(modifier: Modifier = Modifier) {
                   )
             }
 
+            entry<MarsPhotos>{
+                val marsViewModel: MarsViewModel = viewModel()
+                MarsPhotosUI(
+                    modifier = Modifier,
+                    viewModel = marsViewModel,
+                    onPhotoClick = {photo ->
+                        backStack.add(MarsDetail(id = photo.id, url = photo.img_src))
+                    }
+                )
+            }
+
+            entry<MarsDetail> { key ->
+                SingleMarsPhotoUI(
+                    url = key.url,
+                    onBack = { backStack.removeLastOrNull() }
+                )
+            }
         }
     )
 }

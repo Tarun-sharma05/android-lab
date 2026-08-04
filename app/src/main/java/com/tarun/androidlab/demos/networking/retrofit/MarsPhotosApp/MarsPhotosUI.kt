@@ -2,6 +2,7 @@ package com.tarun.androidlab.demos.networking.retrofit.MarsPhotosApp
 
 import android.nfc.Tag
 import android.util.Log
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -46,9 +47,9 @@ import com.tarun.androidlab.demos.fundamentals.lists.Product
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun  MarsPhotosUI(modifier: Modifier, viewModel: MarsViewModel) {
+fun MarsPhotosUI(modifier: Modifier, viewModel: MarsViewModel, onPhotoClick: (MarsDTOItem) -> Unit) {
 
-     val getPhotosState = viewModel.marsUiState
+    val getPhotosState = viewModel.marsUiState
 
 
         Scaffold(
@@ -98,7 +99,7 @@ fun  MarsPhotosUI(modifier: Modifier, viewModel: MarsViewModel) {
                         items(getPhotosState.photos) { photo ->
                             Log.d("Products", "$photo")
 
-                            EachCard(photo = photo)
+                            EachCard(photo = photo, onPhotoClick = onPhotoClick)
 
 
                         }
@@ -132,12 +133,16 @@ fun MarsPhotosCard(modifier: Modifier = Modifier, photo: MarsDTOItem){
 
 
 @Composable
-fun EachCard(photo: MarsDTOItem, modifier: Modifier = Modifier) {
+fun EachCard(photo: MarsDTOItem,
+             modifier: Modifier = Modifier,
+             onPhotoClick: (MarsDTOItem) -> Unit
+) {
 
     Card(
         modifier = modifier
             .padding(4.dp)
             .fillMaxWidth()
+            .clickable{onPhotoClick(photo)}
     ) {
         Column(
             modifier = Modifier.fillMaxSize(),
