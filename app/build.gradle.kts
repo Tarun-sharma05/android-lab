@@ -92,7 +92,7 @@ dependencies {
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.client.logging)
     implementation(libs.ktor.client.serialization)
-    implementation("io.ktor:ktor-serialization-kotlinx-json:$3.5.2")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:3.5.2")
 
 
 
